@@ -297,14 +297,14 @@ class ProductFilterIntegrationTest {
                 .andExpect(jsonPath("$.content.length()").value(2))
                 .andExpect(jsonPath("$.totalElements").value(5))
                 .andExpect(jsonPath("$.totalPages").value(3))
-                .andExpect(jsonPath("$.page").value(1))
+                .andExpect(jsonPath("$.page").value(2))
                 .andExpect(jsonPath("$.last").value(false));
     }
 
     @Test
     void getAllProducts_lastPage_shouldHaveLastTrue() throws Exception {
         mockMvc.perform(get("/api/products")
-                        .param("page", "3")
+                        .param("page", "2")
                         .param("size", "2")
                         .param("sortBy", "PRICE")
                         .param("sortDir", "ASC"))

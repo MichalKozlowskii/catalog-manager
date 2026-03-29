@@ -77,7 +77,7 @@ public class ProductController {
             @RequestParam(required = false) BigDecimal maxPrice,
             @RequestParam(required = false) Currency currency,
             @RequestParam(required = false) String attributes,
-            @RequestParam(defaultValue = "1") @Min(1) int page,
+            @RequestParam(defaultValue = "0") @Min(0) int page,
             @RequestParam(defaultValue = "20") @Min(1) @Max(100) int size,
             @RequestParam(defaultValue = "NAME") ProductSortField sortBy,
             @RequestParam(defaultValue = "ASC") Sort.Direction sortDir) {

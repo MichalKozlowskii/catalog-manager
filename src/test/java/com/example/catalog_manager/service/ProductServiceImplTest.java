@@ -411,8 +411,7 @@ class ProductServiceImplTest {
         ArgumentCaptor<Pageable> pageableCaptor = ArgumentCaptor.forClass(Pageable.class);
         verify(productRepository).findAll(any(Specification.class), pageableCaptor.capture());
 
-        // klient wysyła page=1, do bazy trafia page=0
-        assertThat(pageableCaptor.getValue().getPageNumber()).isEqualTo(0);
+        assertThat(pageableCaptor.getValue().getPageNumber()).isEqualTo(1);
     }
 
     @Test

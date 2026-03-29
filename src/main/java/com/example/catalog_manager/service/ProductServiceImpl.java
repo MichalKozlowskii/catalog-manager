@@ -156,7 +156,7 @@ public class ProductServiceImpl implements ProductService {
             case UPDATED_AT -> "updatedAt";
         };
 
-        Pageable pageable = PageRequest.of(page - 1, size, Sort.by(sortDir, sortField));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortDir, sortField));
 
         Page<Product> result = productRepository.findAll(
                 ProductSpecification.withFilter(filter), pageable);
