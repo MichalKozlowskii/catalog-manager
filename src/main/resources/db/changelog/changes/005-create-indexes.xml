@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="005-create-indexes" author="Michał">
+        <!-- quick filtering by producer -->
+        <createIndex tableName="products" indexName="idx_product_producer_id">
+            <column name="producer_id"/>
+        </createIndex>
+
+        <!-- quic filtering by category -->
+        <createIndex tableName="products" indexName="idx_product_category_id">
+            <column name="category_id"/>
+        </createIndex>
+
+        <!-- GIN index on jsonb-->
+        <sql>
+            CREATE INDEX idx_product_attributes_gin
+                ON product_attributes USING GIN(attributes);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

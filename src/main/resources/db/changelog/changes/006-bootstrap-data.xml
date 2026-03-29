@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="006-bootstrap-data" author="Michał" context="dev">
+
+        <!-- Producers -->
+        <insert tableName="producers">
+            <column name="id" value="a0000000-0000-0000-0000-000000000001"/>
+            <column name="name" value="Samsung"/>
+            <column name="country" value="South Korea"/>
+            <column name="email" value="contact@samsung.com"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="producers">
+            <column name="id" value="a0000000-0000-0000-0000-000000000002"/>
+            <column name="name" value="LG"/>
+            <column name="country" value="South Korea"/>
+            <column name="email" value="contact@lg.com"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="producers">
+            <column name="id" value="a0000000-0000-0000-0000-000000000003"/>
+            <column name="name" value="Bosch"/>
+            <column name="country" value="Germany"/>
+            <column name="email" value="contact@bosch.com"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="producers">
+            <column name="id" value="a0000000-0000-0000-0000-000000000004"/>
+            <column name="name" value="Apple"/>
+            <column name="country" value="USA"/>
+            <column name="email" value="contact@apple.com"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+
+        <!-- Categories -->
+        <insert tableName="product_categories">
+            <column name="id" value="b0000000-0000-0000-0000-000000000001"/>
+            <column name="name" value="TV"/>
+            <column name="required_attributes" value='["screen_size","resolution"]'/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_categories">
+            <column name="id" value="b0000000-0000-0000-0000-000000000002"/>
+            <column name="name" value="Smartphone"/>
+            <column name="required_attributes" value='["battery_capacity","storage"]'/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_categories">
+            <column name="id" value="b0000000-0000-0000-0000-000000000003"/>
+            <column name="name" value="Laptop"/>
+            <column name="required_attributes" value='["ram","storage","processor"]'/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_categories">
+            <column name="id" value="b0000000-0000-0000-0000-000000000004"/>
+            <column name="name" value="Washing Machine"/>
+            <column name="required_attributes" value='["capacity","spin_speed"]'/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+
+        <!-- Products -->
+
+        <!-- Samsung TVs -->
+        <insert tableName="products">
+            <column name="id" value="c0000000-0000-0000-0000-000000000001"/>
+            <column name="producer_id" value="a0000000-0000-0000-0000-000000000001"/>
+            <column name="category_id" value="b0000000-0000-0000-0000-000000000001"/>
+            <column name="name" value="Samsung QLED 55"/>
+            <column name="description" value="55-inch QLED 4K Smart TV"/>
+            <column name="price" value="2999.99"/>
+            <column name="currency" value="PLN"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_attributes">
+            <column name="id" value="d0000000-0000-0000-0000-000000000001"/>
+            <column name="product_id" value="c0000000-0000-0000-0000-000000000001"/>
+            <column name="attributes" value='{"screen_size":"55","resolution":"4K","color":"black","weight":15.5,"energy_rating":"A+"}'/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="id" value="c0000000-0000-0000-0000-000000000002"/>
+            <column name="producer_id" value="a0000000-0000-0000-0000-000000000001"/>
+            <column name="category_id" value="b0000000-0000-0000-0000-000000000001"/>
+            <column name="name" value="Samsung Neo QLED 65"/>
+            <column name="description" value="65-inch Neo QLED 8K Smart TV"/>
+            <column name="price" value="5999.99"/>
+            <column name="currency" value="PLN"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_attributes">
+            <column name="id" value="d0000000-0000-0000-0000-000000000002"/>
+            <column name="product_id" value="c0000000-0000-0000-0000-000000000002"/>
+            <column name="attributes" value='{"screen_size":"65","resolution":"8K","color":"silver","weight":22.3,"energy_rating":"A"}'/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+
+        <!-- Samsung Smartphones -->
+        <insert tableName="products">
+            <column name="id" value="c0000000-0000-0000-0000-000000000003"/>
+            <column name="producer_id" value="a0000000-0000-0000-0000-000000000001"/>
+            <column name="category_id" value="b0000000-0000-0000-0000-000000000002"/>
+            <column name="name" value="Samsung Galaxy S24"/>
+            <column name="description" value="Flagship Android smartphone"/>
+            <column name="price" value="3499.99"/>
+            <column name="currency" value="PLN"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_attributes">
+            <column name="id" value="d0000000-0000-0000-0000-000000000003"/>
+            <column name="product_id" value="c0000000-0000-0000-0000-000000000003"/>
+            <column name="attributes" value='{"battery_capacity":"5000","storage":"256GB","color":"black","ram":"8GB","processor":"Snapdragon 8 Gen 3"}'/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+
+        <!-- LG Products -->
+        <insert tableName="products">
+            <column name="id" value="c0000000-0000-0000-0000-000000000004"/>
+            <column name="producer_id" value="a0000000-0000-0000-0000-000000000002"/>
+            <column name="category_id" value="b0000000-0000-0000-0000-000000000001"/>
+            <column name="name" value="LG OLED C3 55"/>
+            <column name="description" value="55-inch OLED 4K Smart TV"/>
+            <column name="price" value="899.99"/>
+            <column name="currency" value="EUR"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_attributes">
+            <column name="id" value="d0000000-0000-0000-0000-000000000004"/>
+            <column name="product_id" value="c0000000-0000-0000-0000-000000000004"/>
+            <column name="attributes" value='{"screen_size":"55","resolution":"4K","color":"black","weight":16.8,"energy_rating":"B"}'/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+
+        <!-- Apple Products -->
+        <insert tableName="products">
+            <column name="id" value="c0000000-0000-0000-0000-000000000005"/>
+            <column name="producer_id" value="a0000000-0000-0000-0000-000000000004"/>
+            <column name="category_id" value="b0000000-0000-0000-0000-000000000002"/>
+            <column name="name" value="iPhone 15 Pro"/>
+            <column name="description" value="Apple flagship smartphone"/>
+            <column name="price" value="1199.99"/>
+            <column name="currency" value="EUR"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_attributes">
+            <column name="id" value="d0000000-0000-0000-0000-000000000005"/>
+            <column name="product_id" value="c0000000-0000-0000-0000-000000000005"/>
+            <column name="attributes" value='{"battery_capacity":"3274","storage":"256GB","color":"titanium","ram":"8GB","processor":"A17 Pro"}'/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+
+        <!-- Apple Laptop -->
+        <insert tableName="products">
+            <column name="id" value="c0000000-0000-0000-0000-000000000006"/>
+            <column name="producer_id" value="a0000000-0000-0000-0000-000000000004"/>
+            <column name="category_id" value="b0000000-0000-0000-0000-000000000003"/>
+            <column name="name" value="MacBook Pro 14"/>
+            <column name="description" value="Apple M3 Pro laptop"/>
+            <column name="price" value="8999.99"/>
+            <column name="currency" value="PLN"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_attributes">
+            <column name="id" value="d0000000-0000-0000-0000-000000000006"/>
+            <column name="product_id" value="c0000000-0000-0000-0000-000000000006"/>
+            <column name="attributes" value='{"ram":"18GB","storage":"512GB","processor":"M3 Pro","color":"space black","battery_life":"18h","weight":1.6}'/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+
+        <!-- Bosch Washing Machine -->
+        <insert tableName="products">
+            <column name="id" value="c0000000-0000-0000-0000-000000000007"/>
+            <column name="producer_id" value="a0000000-0000-0000-0000-000000000003"/>
+            <column name="category_id" value="b0000000-0000-0000-0000-000000000004"/>
+            <column name="name" value="Bosch Serie 6"/>
+            <column name="description" value="Front-loading washing machine"/>
+            <column name="price" value="2499.99"/>
+            <column name="currency" value="PLN"/>
+            <column name="created_at" valueDate="now()"/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+        <insert tableName="product_attributes">
+            <column name="id" value="d0000000-0000-0000-0000-000000000007"/>
+            <column name="product_id" value="c0000000-0000-0000-0000-000000000007"/>
+            <column name="attributes" value='{"capacity":"9kg","spin_speed":"1400rpm","color":"white","energy_rating":"A","noise_level":"48dB"}'/>
+            <column name="updated_at" valueDate="now()"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
